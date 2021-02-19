@@ -1,6 +1,6 @@
 #Credits to https://realpython.com/face-detection-in-python-using-a-webcam/ 
 #and https://towardsdatascience.com/computer-vision-detecting-objects-using-haar-cascade-classifier-4585472829a9
-
+ 
 import cv2
 
 imagePath = "picture.jpg" 
