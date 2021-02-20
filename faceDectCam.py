@@ -6,24 +6,27 @@ import cv2
 
 #detect webcam
 video_capture = cv2.VideoCapture(0)
-cascade = "haarcascade_frontalface_default.xml"
 
+#haar cascade
+cascade = "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascade)
 
 while True:
 
+    #webcam capture frame
     out, frame = video_capture.read()
 
+    #grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
+    #detect faces in frame
     faces = faceCascade.detectMultiScale(gray, 1.05,6)
 
-    if len(faces) == 0:
-        print("No faces found")
-
+    #highlight the faces in the frame
     for (x,y,w,h) in faces:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0),2)
 
+    #quit if q is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
